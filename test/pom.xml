@@ -1,0 +1,141 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.geecat</groupId>
+	<artifactId>test</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Test</name>
+
+<build>
+
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>com.geecat.test.HelloWorld</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.dstovall</groupId>
+						<artifactId>onejar-maven-plugin</artifactId>
+						<version>1.4.4</version>
+						<executions>
+							<execution>
+								<configuration>
+									<!-- Optional -->
+									<onejarVersion>0.97</onejarVersion>
+									<!-- Optional, use only if you need to include native libraries 
+										(dll's) -->
+									<!-- <binlibs> <fileSet> <directory>${project.build.directory}/dllextract</directory> 
+										<includes> <include>test.dll</include> </includes> </fileSet> </binlibs> -->
+									<!-- Optional, default is false -->
+									<attachToBuild>false</attachToBuild>
+									<!-- Optional, default is "onejar" -->
+									<classifier>onejar</classifier>
+								</configuration>
+								<goals>
+									<goal>one-jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>onejar-maven-plugin.googlecode.com</id>
+					<url>http://onejar-maven-plugin.googlecode.com/svn/mavenrepo</url>
+				</pluginRepository>
+			</pluginRepositories>
+	<profiles>
+		<profile>
+			<id>linux</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			
+			<dependencies>
+				<dependency>
+					<groupId>org.drools</groupId>
+					<artifactId>knowledge-api</artifactId>
+					<version>6.1.0.Final</version>
+					<scope>system</scope>
+					<systemPath>${basedir}\lib\linux\aws-java-sdk-core-1.9.6.jar</systemPath>
+				</dependency>
+			</dependencies>
+
+		</profile>
+		
+		<profile>
+			<id>windows</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<!-- <build>
+
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>com.geecat.test.HelloWorld</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.dstovall</groupId>
+						<artifactId>onejar-maven-plugin</artifactId>
+						<version>1.4.4</version>
+						<executions>
+							<execution>
+								<configuration>
+									Optional
+									<onejarVersion>0.97</onejarVersion>
+									Optional, use only if you need to include native libraries 
+										(dll's)
+									<binlibs> <fileSet> <directory>${project.build.directory}/dllextract</directory> 
+										<includes> <include>test.dll</include> </includes> </fileSet> </binlibs>
+									Optional, default is false
+									<attachToBuild>false</attachToBuild>
+									Optional, default is "onejar"
+									<classifier>onejar</classifier>
+								</configuration>
+								<goals>
+									<goal>one-jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>onejar-maven-plugin.googlecode.com</id>
+					<url>http://onejar-maven-plugin.googlecode.com/svn/mavenrepo</url>
+				</pluginRepository>
+			</pluginRepositories> -->
+			<dependencies>
+				<dependency>
+					<groupId>org.drools</groupId>
+					<artifactId>knowledge-api</artifactId>
+					<version>6.1.0.Final</version>
+					<scope>system</scope>
+					<systemPath>${basedir}\lib\windows\knowledge-api-6.1.0.Final.jar</systemPath>
+				</dependency>
+			</dependencies>
+
+		</profile>
+		
+		
+	</profiles>
+</project>

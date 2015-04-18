@@ -1,0 +1,24 @@
+
+input {
+color: black;
+}
+
+table,th,td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+}
+
+th,td {
+	padding: 5px;
+}
+
+body {
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 14px;
+}
+
+p {
+	margin-top: 10px;
+}
